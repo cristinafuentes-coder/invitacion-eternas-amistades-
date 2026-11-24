@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#161016" />
+  <meta name="description" content="Una invitación misteriosa para celebrar amistades eternas." />
+  <title>Opción 1 · Pacto de medianoche | Invitación</title>
+  <style>
+    :root{--ink:#f3e6d4;--paper:#130e14;--accent:#d8aa64;--light:#e2c594;--soft:#372027;--border:#8e6e51;--muted:#ba9c84}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+    button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .page{position:relative;isolation:isolate;min-height:100vh;overflow:hidden}
+    .veil{position:absolute;inset:0;pointer-events:none;z-index:-1}
+    .invite{width:min(96%,820px);margin:24px auto 60px;position:relative;padding:54px 48px 44px;text-align:center}
+    .eyebrow{font-family:'Trebuchet MS',Arial,sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .tiny-symbol{font-size:22px;color:var(--accent);display:block;margin:12px 0 8px;letter-spacing:15px}
+    h1{font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;font-weight:700;font-size:clamp(31px,5.2vw,54px);line-height:1.08;letter-spacing:.012em;text-transform:none;margin:15px auto 10px;max-width:700px;text-wrap:balance;color:#f4e6cf;text-shadow:0 2px 16px #00000055}
+    .subtitle{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin:12px 0 28px}
+    .board-shell{position:relative;width:min(100%,620px);margin:10px auto 16px;padding:7px;border-radius:42% / 17%;box-shadow:0 25px 50px #0004,0 0 0 1px var(--border)}
+    .board{width:100%;aspect-ratio:1.74;position:relative;border-radius:42% / 16%;overflow:hidden;isolation:isolate}
+    .board:before{content:"";position:absolute;inset:9px;border:1px solid currentColor;opacity:.3;border-radius:42% / 17%;pointer-events:none}
+    .board:after{content:"✦";position:absolute;left:50%;top:48%;font-size:28px;opacity:.32;transform:translate(-50%,-50%);pointer-events:none}
+    .board-item{position:absolute;transform:translate(-50%,-50%);font-family:'Trebuchet MS',Arial,sans-serif;font-size:clamp(9px,1.7vw,16px);font-weight:700;z-index:1;pointer-events:none}
+    .board-word{font-family:Georgia,serif;font-weight:700;position:absolute;font-size:clamp(11px,2.6vw,19px);letter-spacing:.2em;transform:translate(-50%,-50%);z-index:1}
+    .board-eyes{position:absolute;left:50%;top:7%;transform:translateX(-50%);font-size:12px;letter-spacing:5px;opacity:.75}
+    .board-moon{position:absolute;top:13%;font-size:26px;opacity:.77}.board-moon.left{left:12%}.board-moon.right{right:12%}
+    .planchette{position:absolute;left:16%;top:73%;width:clamp(65px,13vw,96px);height:clamp(80px,16vw,122px);z-index:5;transform:translate(-50%,-50%) rotate(-20deg);transform-origin:50% 50%;filter:drop-shadow(0 10px 7px #0006);will-change:left,top,transform;pointer-events:none}
+    .planchette-shape{position:absolute;inset:0;clip-path:polygon(50% 0,93% 28%,100% 76%,81% 100%,19% 100%,0 76%,7% 28%);border-radius:40%;background:linear-gradient(130deg,#e2c69a 0%,#9c6c43 48%,#e4cba2 100%);box-shadow:inset 0 0 18px #42200d;border:2px solid #e9cda0}
+    .planchette-shape:before{content:"";position:absolute;inset:6px;clip-path:polygon(50% 0,93% 28%,100% 76%,81% 100%,19% 100%,0 76%,7% 28%);border:1px solid #65462c;background:radial-gradient(circle at 35% 60%,transparent 23%,#4c321722)}
+    .planchette-hole{position:absolute;left:50%;top:59%;width:48%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:#2b1917f0;display:flex;align-items:center;justify-content:center;color:#f5dfb5;border:6px solid #b78656;box-shadow:inset 0 0 10px #0009,0 0 0 1px #3d2213;font:700 clamp(17px,3.4vw,28px) Georgia,serif;line-height:1}
+    .planchette-nose{position:absolute;top:14%;left:50%;transform:translateX(-50%);font-size:14px;color:#593921}
+    .board-caption{text-transform:uppercase;font-family:'Trebuchet MS',Arial,sans-serif;letter-spacing:3.5px;font-size:9px;color:var(--muted);margin:15px 0}
+    .spell-area{min-height:140px;padding:8px 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+    .spell-label{font-family:'Trebuchet MS',Arial,sans-serif;text-transform:uppercase;font-size:10px;letter-spacing:4px;color:var(--muted);margin:5px 0 10px}
+    .typed{max-width:660px;min-height:65px;margin:0;font-size:clamp(25px,4.6vw,40px);font-weight:400;line-height:1.24;color:var(--accent);text-wrap:balance}
+    .typed:after{content:"";border-right:1px solid currentColor;margin-left:2px;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
+    .story{max-width:580px;margin:8px auto 26px;font-size:clamp(15px,2.7vw,18px);line-height:1.85;opacity:0;transform:translateY(12px);transition:opacity 1s,transform 1s}
+    .story.shown{opacity:1;transform:none}
+    .ornament{font-size:16px;letter-spacing:13px;color:var(--accent);margin:18px auto}
+    .details{display:grid;grid-template-columns:1fr 1fr;max-width:560px;margin:22px auto 27px;gap:24px 30px}
+    .details .location{grid-column:1/-1}
+    .detail-label{font-family:'Trebuchet MS',Arial,sans-serif;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-size:10px;margin:0 0 9px}
+    .detail-value{font-size:18px;letter-spacing:.035em;line-height:1.35;margin:0}
+    .pending-value{display:block;width:auto;max-width:100%;min-height:25px;margin:auto;line-height:1.5}
+    .venue{display:flex;flex-direction:column;align-items:center;gap:5px}
+    .venue strong{font-size:22px;font-weight:700;color:var(--accent);letter-spacing:.025em}
+    .venue span{font-size:16px;color:var(--ink);letter-spacing:.01em}
+    .venue small{margin-top:8px;padding-top:11px;border-top:1px solid #8e6e5170;font-size:13px;font-family:'Trebuchet MS',Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+    .admission{display:inline-flex;gap:12px;align-items:center;justify-content:center;margin:6px 0 28px;padding:12px 26px;border:1px solid var(--border);font-family:'Trebuchet MS',Arial,sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase}
+    .admission b{font-size:18px;color:var(--accent);font-family:Georgia,serif}
+    .rsvp{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .rsvp button{min-width:190px;padding:17px 25px;font-family:'Trebuchet MS',Arial,sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;border:1px solid var(--accent);transition:transform .2s,background .2s,color .2s}
+    .rsvp button:hover{transform:translateY(-3px)}
+    .accept{background:var(--accent);color:var(--paper)}.deny{background:transparent;color:var(--accent)}
+    .replay{display:inline-block;margin:18px auto 0;padding:6px 4px;background:transparent;border:0;color:var(--muted);font:11px 'Trebuchet MS',Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;letter-spacing:1px}
+    .footnote{margin-top:22px;font-size:11px;letter-spacing:2px;opacity:.55}
+    .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(30px);padding:12px 19px;border-radius:6px;background:#241b1a;color:#fff;box-shadow:0 6px 35px #0004;opacity:0;transition:all .3s;pointer-events:none;z-index:100;width:max-content;max-width:90vw;text-align:center;font:13px/1.4 Arial,sans-serif}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    /* gothic */
+    
+    .gothic .veil{background:radial-gradient(ellipse at 50% 22%,#53232d80 0,transparent 42%),radial-gradient(ellipse at 10% 70%,#391924aa 0,transparent 30%),radial-gradient(ellipse at 92% 80%,#40273377 0,transparent 34%),repeating-linear-gradient(90deg,transparent 0 9px,#fff1 10px 10px)}
+    .gothic .invite{border:1px solid #9576507d;background:linear-gradient(155deg,#2b1c25ed,#190f1beb 66%,#23161dec);box-shadow:0 25px 90px #050205bb,inset 0 0 0 8px #ae895010}
+    .gothic .invite:before{content:"✧";position:absolute;top:14px;left:15px;color:#aa875c;font-size:33px}.gothic .invite:after{content:"✧";position:absolute;bottom:10px;right:15px;color:#aa875c;font-size:33px}
+    .gothic h1{text-shadow:0 2px 22px #d6a37123;font-variant:normal}
+    .gothic .board-shell{background:linear-gradient(135deg,#ba925e,#4c271d 24%,#a47a4b 50%,#4e2b1c 75%,#be9e6e);border:2px solid #c5a579}
+    .gothic .board{background:radial-gradient(ellipse at 50% 35%,#a67657 0,#633d36 64%,#382524 100%);color:#f6dab3;text-shadow:0 1px 3px #4b2d2d}
+    .gothic .board .board-item{color:#efd0ab}
+    .gothic .story{color:#d9bfae}.gothic .admission{background:#a77d3a13}
+    .gothic .accept{color:#221520}.gothic .deny:hover{background:#d8aa6419}
+  
+    @media(max-width:620px){.invite{width:calc(100% - 18px);margin:8px auto 36px;padding:34px 17px 30px}h1{font-size:clamp(29px,8vw,41px)}.eyebrow{letter-spacing:3px}.subtitle{letter-spacing:1.7px;font-size:11px}.board-shell{margin-top:24px}.board-caption{letter-spacing:2px;font-size:8px}.board-word{letter-spacing:1px}.board-eyes{font-size:8px}.planchette{width:66px;height:84px}.planchette-hole{border-width:4px}.details{gap:23px 12px}.detail-value{font-size:16px}.rsvp button{min-width:140px;flex:1;padding:16px 12px}.story{line-height:1.68}.spell-area{min-height:140px}.typed{min-height:72px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body class="gothic">
+<div class="page"><div class="veil" aria-hidden="true"></div>
+  <main class="invite">
+    <div class="eyebrow">Invitación privada · Sesión de recuerdos</div><span class="tiny-symbol" aria-hidden="true">✦ ☾ ✦</span>
+    <h1 id="main-title">El misterio de las<br>eternas amistades</h1>
+    <p class="subtitle">Amistades que desafían al tiempo</p>
+    <section class="board-shell" aria-label="Tablero Ouija animado">
+      <div class="board" id="board">
+        <div class="board-eyes">✦ &nbsp; ✶ &nbsp; ✦</div>
+        <div class="board-moon left">☽</div><div class="board-moon right">☼</div>
+        <div class="board-word" style="left:25%;top:20%">SÍ</div>
+        <div class="board-word" style="left:75%;top:20%">NO</div>
+        <div class="board-word" style="left:50%;top:88%">ADIÓS</div>
+        <div class="planchette" id="planchette" aria-hidden="true">
+          <div class="planchette-shape"></div><div class="planchette-nose">✧</div><div class="planchette-hole" id="hole">✦</div>
+        </div>
+      </div>
+    </section>
+    <div class="board-caption" id="board-caption">El tablero tiene algo que decir...</div>
+    <section class="spell-area" aria-live="polite" aria-label="El mensaje revelado">
+      <p class="spell-label">El mensaje de esta noche</p>
+      <p class="typed" id="typed"></p>
+    </section>
+    <div class="story" id="story">Hay amistades que no envejecen: se convierten en leyendas. Los años pasan, pero las risas, los secretos y las historias que compartimos siguen aquí. Algunas conexiones son eternas... y esta noche, las volveremos a invocar.</div>
+    <div class="ornament" aria-hidden="true">✧ ◇ ✧</div>
+    <section class="details" aria-label="Detalles de la celebración">
+      <div class="location"><p class="detail-label">Lugar del encuentro</p><p class="detail-value venue"><strong>Salón Inglés</strong><span>Edificio Bellini 4 · Puerto Santa Ana</span><small>Recepción: Ángela Basantes</small></p></div>
+      <div><p class="detail-label">Fecha</p><p class="detail-value pending-value" id="date-value"></p></div>
+      <div><p class="detail-label">Hora</p><p class="detail-value pending-value" id="time-value"></p></div>
+    </section>
+    <div class="admission"><span>Admisión</span><b>2 personas</b></div>
+    <div class="rsvp" role="group" aria-label="Confirmar asistencia">
+      <button class="accept" type="button" id="accept">Aceptar</button>
+      <button class="deny" type="button" id="deny">Denegar</button>
+    </div>
+    <button class="replay" type="button" id="replay">↺ Revivir el mensaje</button>
+    <p class="footnote">Solo los recuerdos verdaderos regresan</p>
+  </main>
+</div><div class="toast" id="toast" role="status"></div>
+<script>
+  // ================================================================
+  // CONFIGURACIÓN: título, fecha, hora y WhatsApp.
+  // Los botones abren WhatsApp con el mensaje preparado; la invitada debe pulsar Enviar.
+  // ================================================================
+  const INFO = {
+    title: "El misterio de las eternas amistades",
+    shortTitle: "Las eternas amistades",
+    date: "Sábado 5 de diciembre de 2026",
+    time: "Desde las 5:00 p. m.",
+    whatsapp: "593939077311",
+    message: "Una vez no bastaba. Toca hacerlo otra vez."
+  };
+  document.querySelector('#date-value').textContent = INFO.date;
+  document.querySelector('#time-value').textContent = INFO.time;
+  const titleEl = document.getElementById('main-title');
+  if (titleEl && INFO.title) {
+    titleEl.innerHTML = INFO.title.replace(/\s+amistades$/i, '<br>amistades').replace(/\s+amigas$/i, '<br>amigas').replace(/\s+veinteochinas$/i, '<br>veinteochinas');
+  }
+  const board = document.getElementById('board');
+  const planchette = document.getElementById('planchette');
+  const hole = document.getElementById('hole');
+  const typed = document.getElementById('typed');
+  const story = document.getElementById('story');
+  const caption = document.getElementById('board-caption');
+  let runId = 0;
+  const sleep = ms => new Promise(resolve => setTimeout(resolve,ms));
+  const letters = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+  const row1 = Array.from(letters.slice(0,14));
+  const row2 = Array.from(letters.slice(14));
+  function placeRow(chars, y, bow) {
+    chars.forEach((ch,i)=>{
+      const u=i/(chars.length-1);
+      const el=document.createElement('span');el.className='board-item';el.textContent=ch;
+      el.style.left=(10+80*u)+'%';
+      el.style.top=(y-bow*Math.sin(Math.PI*u))+'%';
+      board.insertBefore(el,planchette);
+    });
+  }
+  placeRow(row1,39,9);placeRow(row2,58,6);
+  '1234567890'.split('').forEach((ch,i)=>{
+    const el=document.createElement('span');el.className='board-item';el.textContent=ch;
+    el.style.left=(21+58*i/9)+'%';el.style.top='74%';board.insertBefore(el,planchette);
+  });
+  function setPosition(x,y,angle){planchette.style.left=x+'%';planchette.style.top=y+'%';planchette.style.transform=`translate(-50%,-50%) rotate(${angle}deg)`;}
+  function ease(t){return t*t*(3-2*t)}
+  function glide(from,to,ms,id){
+    return new Promise(resolve=>{
+      const start=performance.now();
+      function frame(now){
+        if(id!==runId){resolve(false);return}
+        const t=Math.min(1,(now-start)/ms);const p=ease(t);
+        setPosition(from[0]+(to[0]-from[0])*p,from[1]+(to[1]-from[1])*p,from[2]+(to[2]-from[2])*p);
+        if(t<1)requestAnimationFrame(frame);else resolve(true);
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+  async function animate(){
+    const id=++runId;story.classList.remove('shown');typed.textContent='';hole.textContent='✦';caption.textContent='El tablero tiene algo que decir...';
+    let prev=[17,72,-22];setPosition(...prev);
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      const waypoints=[[28,35,-9],[69,31,18],[77,64,8],[28,72,-15],[47,45,0],[71,48,14],[50,52,0]];
+      for (const point of waypoints){if(!(await glide(prev,point,490,id)))return;prev=point;}
+    }else{setPosition(50,52,0)}
+    if(id!==runId)return;
+    caption.textContent='La planchette ha encontrado las palabras';
+    for (const char of INFO.message){
+      if(id!==runId)return;
+      hole.textContent=char===' '?'·':char;
+      typed.textContent+=char;
+      await sleep(char==='.'?380:char===','?270:95);
+    }
+    if(id!==runId)return;
+    hole.textContent='✦';story.classList.add('shown');caption.textContent='El pasado nos vuelve a reunir';
+  }
+  document.getElementById('replay').addEventListener('click',animate);
+  let toastTimeout;
+  function showToast(msg){
+    const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');
+    clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('show'),3800);
+  }
+  function confirm(type){
+    const phone = INFO.whatsapp.replace(/\D/g, '');
+    const msg = type === 'accept'
+      ? `¡Hola! Confirmo nuestra asistencia de 2 personas a ${INFO.shortTitle} el sábado 5 de diciembre de 2026, a partir de las 5:00 p. m. ¡Nos vemos!`
+      : `¡Hola! Muchas gracias por la invitación a ${INFO.shortTitle}, pero no podremos asistir el sábado 5 de diciembre de 2026.`;
+    const destination = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    window.location.href = destination;
+  }
+  document.getElementById('accept').addEventListener('click',()=>confirm('accept'));
+  document.getElementById('deny').addEventListener('click',()=>confirm('deny'));
+  animate();
+</script>
+</body>
+</html>
